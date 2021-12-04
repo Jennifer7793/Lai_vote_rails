@@ -1,0 +1,29 @@
+<h1>Candidates List</h1>
+<%= link_to 'Create New Candidate', new_candidate_path %>
+<table>
+  <thead>
+    <tr>
+      <td>Vote</td>
+      <td>Name</td>
+      <td>Party</td>
+      <td>Politics</td>
+      <td>Total_vote</td>
+      <td>Remark</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @candidates.each do |candidate| %>
+    <tr>
+      <td><%= link_to "Vote to this", "#" %></td>
+      <td><%= candidate.name %>(Age: <%= candidate.age %>)</td>
+      <td><%= candidate.party %></td>
+      <td><%= candidate.politics %></td>
+      <td><%= candidate.votes %></td>
+      <td>
+        <%= link_to "Edit", edit_candidate_path(candidate) %>
+        <%= link_to "Delete", candidate_path(candidate), method: "delete", data: { confirm: "Sure to delete?" } %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
