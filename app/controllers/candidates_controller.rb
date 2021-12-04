@@ -29,6 +29,12 @@ class CandidatesController < ApplicationController
     end
   end
 
+  def vote
+    @candidate = Candidate.find_by(id:params[:id])
+    @candidate.vote_logs.create(ip_address: request.remote_ip)
+    redirect_to candidates_path, notice: "Voted!"
+  end
+
   def destroy
     @candidate = Candidate.find_by(id:params[:id])
     @candidate.destroy

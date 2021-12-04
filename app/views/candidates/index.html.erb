@@ -14,11 +14,11 @@
   <tbody>
     <% @candidates.each do |candidate| %>
     <tr>
-      <td><%= link_to "Vote to this", "#" %></td>
+      <td><%= link_to "Vote to this candidate", vote_candidate_path(candidate), method: "post", data: { confirm: "Sure to vote this guy?" } %></td>
       <td><%= candidate.name %>(Age: <%= candidate.age %>)</td>
       <td><%= candidate.party %></td>
       <td><%= candidate.politics %></td>
-      <td><%= candidate.votes %></td>
+      <td><%= candidate.vote_logs.count %></td>
       <td>
         <%= link_to "Edit", edit_candidate_path(candidate) %>
         <%= link_to "Delete", candidate_path(candidate), method: "delete", data: { confirm: "Sure to delete?" } %>
