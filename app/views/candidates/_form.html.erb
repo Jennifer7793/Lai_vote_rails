@@ -1,23 +1,19 @@
-<%= form_for (candidate) do |f| %>
+<%= simple_form_for (candidate) do |f| %>
 
   <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.input :name, label: "Name" %>
   </div>
   
   <div>
-    <%= f.label :age %>
-    <%= f.text_field :age %>
+    <%= f.input :age, label: "Age" %>
   </div>
   
   <div>
-    <%= f.label :party %>
-    <%= f.text_field :party %>
+    <%= f.input :party, label: "Party" %>
   </div>
   
   <div>
-    <%= f.label :politics %>
-    <%= f.text_field :politics %>
+    <%= f.input :politics, label: "Politics" %>
   </div>
-    <%= f.submit 'Edited' %>
+    <%= f.submit 'submit', class:"btn btn-info btn=xs" %>
 <% end %>
